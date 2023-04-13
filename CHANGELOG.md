@@ -12,7 +12,7 @@
 
 ### Changed
 
-- Changed base AppTemplate [AppTemplate](src\app\app.component.html)
+- Changed base AppTemplate [AppTemplate](./src/app/app.component.html)
 
 ## [0.0.1] - 2023-04-13
 
