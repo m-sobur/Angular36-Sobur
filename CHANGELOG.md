@@ -1,10 +1,5 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog],
-and this project adheres to [Semantic Versioning].
-
 ## [Unreleased]
 
 - /
@@ -13,28 +8,23 @@ and this project adheres to [Semantic Versioning].
 
 ### Added
 
-- 
-
+- Created and configured FirstComponent [FirstComponent](./src/app/first/)
 
 ### Changed
 
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
+- Changed base AppTemplate [AppTemplate](src\app\app.component.html)
 
 ## [0.0.1] - 2023-04-13
 
 - initial release
 
 <!-- Links -->
+
 [keep a changelog]: https://keepachangelog.com/en/1.0.0/
 [semantic versioning]: https://semver.org/spec/v2.0.0.html
 
 <!-- Versions -->
+
 [unreleased]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.2...HEAD
 [0.0.2]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/m-sobur/Angular36-Sobur/releases/tag/v0.0.1
