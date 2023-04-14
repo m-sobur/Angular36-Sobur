@@ -1,0 +1,13 @@
+<div *ngIf="cartItems.length > 0">
+  <h2>Cart List</h2>
+  <ul>
+    <li *ngFor="let item of cartItems; trackBy: trackById">
+      {{item.name}} - {{item.price}}
+    </li>
+  </ul>
+  <button (click)="onClearCart()">Clear cart</button>
+</div>
+
+<div *ngIf="cartItems.length === 0">
+  <p>Корзина пуста</p>
+</div>
