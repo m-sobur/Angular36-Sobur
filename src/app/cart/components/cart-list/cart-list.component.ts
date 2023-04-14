@@ -24,6 +24,10 @@ export class CartListComponent {
     console.log(`Cart clear`);
   }
 
+  calculateTotalPrice(): number {
+    return this.cartItems.reduce((acc, item) => acc + item.price, 0);
+  }
+
   private updateCartItems(): void {
     this.cartItems = this.cartService.getItems();
   }
