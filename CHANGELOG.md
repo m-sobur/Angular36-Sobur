@@ -4,6 +4,16 @@
 
 - /
 
+## [0.0.5] - 2023-04-18
+
+### Changed
+
+- Migrated calculateTotalPrice method logic from [cart-list.component](./src/app/cart/components/cart-list/cart-list.component.ts) to [cart.service](./src/app/cart/services/cart.service.ts)
+
+### Fixed
+
+- Fixed assignments in component constructors, assignments now work through the implementation of the OnInit interface
+
 ## [0.0.4] - 2023-04-14
 
 ### Added
@@ -42,7 +52,8 @@
 
 <!-- Versions -->
 
-[unreleased]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.4...HEAD
+[unreleased]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.5...HEAD
+[0.0.5]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.1...v0.0.2
