@@ -20,4 +20,8 @@ export class CartService {
   clearCart(): void {
     this.items = [];
   }
+
+  calculateTotalPrice(): number {
+    return this.items.reduce((acc, item) => acc + item.price, 0);
+  }
 }

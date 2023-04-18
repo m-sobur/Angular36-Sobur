@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductModel } from 'src/app/products/models/product-model';
 import { CartService } from '../../services/cart.service';
 
@@ -7,10 +7,12 @@ import { CartService } from '../../services/cart.service';
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.scss']
 })
-export class CartListComponent {
-  cartItems: ProductModel[] = [];
+export class CartListComponent implements OnInit {
+  cartItems!: ProductModel[];
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService) { }
+
+  ngOnInit(): void {
     this.updateCartItems();
   }
 
@@ -25,7 +27,7 @@ export class CartListComponent {
   }
 
   calculateTotalPrice(): number {
-    return this.cartItems.reduce((acc, item) => acc + item.price, 0);
+    return this.cartService.calculateTotalPrice();
   }
 
   private updateCartItems(): void {
