@@ -4,6 +4,12 @@
 
 - /
 
+## [0.0.6] - 2023-04-19
+
+### Added
+
+- Delete a specific item in the cart by button
+
 ## [0.0.5] - 2023-04-18
 
 ### Changed
@@ -52,7 +58,8 @@
 
 <!-- Versions -->
 
-[unreleased]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.5...HEAD
+[unreleased]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.6...HEAD
+[0.0.5]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.2...v0.0.3
