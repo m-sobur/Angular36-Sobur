@@ -26,6 +26,11 @@ export class CartListComponent implements OnInit {
     console.log(`Cart clear`);
   }
 
+  onRemoveItem(index: number): void {
+    this.cartService.removeItem(index);
+    this.updateCartItems();
+  }
+
   calculateTotalPrice(): number {
     return this.cartService.calculateTotalPrice();
   }
