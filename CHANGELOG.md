@@ -4,6 +4,13 @@
 
 - /
 
+## [0.0.7] - 2023-04-19
+
+### Added
+
+- Tailwind is installed
+- Several styles for the buttons have been added
+
 ## [0.0.6] - 2023-04-19
 
 ### Added
@@ -58,7 +65,8 @@
 
 <!-- Versions -->
 
-[unreleased]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.6...HEAD
+[unreleased]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.7...HEAD
+[0.0.7]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.3...v0.0.4
