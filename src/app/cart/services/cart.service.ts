@@ -21,6 +21,10 @@ export class CartService {
     this.items = [];
   }
 
+  removeItem(index: number): void {
+    this.items.splice(index, 1);
+  }
+
   calculateTotalPrice(): number {
     return this.items.reduce((acc, item) => acc + item.price, 0);
   }
