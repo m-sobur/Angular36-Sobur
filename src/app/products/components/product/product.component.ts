@@ -11,6 +11,7 @@ import { ProductModel } from '../../models/product-model';
 export class ProductComponent {
   @Input() product!: ProductModel;
 
+  // тут тоже можно через output
   constructor(private cartService: CartService) { }
 
   onAddToCart(): void {
