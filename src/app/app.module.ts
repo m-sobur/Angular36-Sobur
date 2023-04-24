@@ -24,8 +24,3 @@ import { CartListComponent } from './cart/components/cart-list/cart-list.compone
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-// Правильно ли я сделал changelog.md?
-// А так же интересует правильность Total Price в корзине как доп функционал к 8 шагу первого задания. Я долго сидел не мог понять как мне отобразить переменную totalPrice из Cart сервиса передать её на CartListComponent и вывести в шаблоне с помощью интерполяции, у меня всегда она была 0, я не понимаю почему так выходит.
-
-// Сейчас тотал работает, значит вы решили эту задачу

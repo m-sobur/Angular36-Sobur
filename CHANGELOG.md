@@ -4,6 +4,35 @@
 
 - /
 
+### VZhyrytskiy Вопросы
+
+- У нас есть 2 переменные Total Price, обе используют интерполяцию для отображения значения:    
+  -  первая(рабочая переменная) делает это с помощью метода который выводим в шаблоне{{calculateTotalPrice()}} 
+
+    Код компонента:
+    calculateTotalPrice(): number {
+        return this.cartService.calculateTotalPrice();
+      }
+  
+  - вторая(нерабочая переменная) делает это с помощью промежуточного свойства который выводим в шаблоне с помощью {{totalPrice}} 
+
+     Код компонента:
+    private updateCartItems(): void {
+      this.cartItems = this.cartService.getItems();
+      this.totalPrice = this.cartService.calculateTotalPrice(); <--- Вот тут мы же по факту делаем как и в методе calculateTotalPrice(), просто переприсваиваем и обновляем значение переменной totalPrice в компоненте
+      console.log('Bad TP = ' + this.totalPrice);
+    }  
+    
+    Сначала у меня была вторая версия с переменной totalPrice:
+    Проблема в том что во втором случае не обновляется значение totalPrice при добавлении элементов в корзину, а в первом она обновляется, хотя мы используем по факту одну и ту же логику сервиса, просто передаем по разному. Почему так?=)
+
+
+## [0.0.8] - 2023-04-24
+
+### Changed
+
+- Redundant div removed [product-list.component](src/app/products/components/product-list/product-list.component.html)
+
 ## [0.0.7] - 2023-04-19
 
 ### Added
@@ -65,7 +94,8 @@
 
 <!-- Versions -->
 
-[unreleased]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.7...HEAD
+[unreleased]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.8...HEAD
+[0.0.8]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.7...v0.0.8
 [0.0.7]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.4...v0.0.5
