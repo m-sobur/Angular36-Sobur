@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CartService } from 'src/app/cart/services/cart.service';
 
 import { ProductModel } from '../../models/product-model';
@@ -11,11 +11,9 @@ import { ProductModel } from '../../models/product-model';
 export class ProductComponent {
   @Input() product!: ProductModel;
 
-  // тут тоже можно через output
-  constructor(private cartService: CartService) { }
+  @Output() addProductToCart: EventEmitter<ProductModel> = new EventEmitter<ProductModel>;
 
   onAddToCart(): void {
-    this.cartService.addItem(this.product);
-    console.log(`Product ${this.product.name} has been added to cart!`);
+    this.addProductToCart.emit(this.product);
   }
 }

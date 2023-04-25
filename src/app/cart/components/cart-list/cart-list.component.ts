@@ -9,7 +9,6 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartListComponent implements OnInit {
   cartItems!: ProductModel[];
-  totalPrice!: Number;
 
   constructor(private cartService: CartService) { }
 
@@ -38,7 +37,5 @@ export class CartListComponent implements OnInit {
 
   private updateCartItems(): void {
     this.cartItems = this.cartService.getItems();
-    this.totalPrice = this.cartService.calculateTotalPrice();
-    console.log('Bad TP = ' + this.totalPrice);
   }
 }
