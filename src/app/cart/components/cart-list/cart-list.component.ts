@@ -35,6 +35,10 @@ export class CartListComponent implements OnInit {
     return this.cartService.calculateTotalPrice();
   }
 
+  calculateTotalQuantity(): number {
+    return this.cartService.calculateTotalQuantity();
+  }
+
   private updateCartItems(): void {
     this.cartItems = this.cartService.getItems();
   }

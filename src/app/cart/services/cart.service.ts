@@ -28,4 +28,8 @@ export class CartService {
   calculateTotalPrice(): number {
     return this.items.reduce((acc, item) => acc + item.price, 0);
   }
+
+  calculateTotalQuantity(): number {
+    return this.items.length;
+  }
 }

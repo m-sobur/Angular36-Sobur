@@ -2,6 +2,8 @@
   <h2>{{product.name}}</h2>
   <p>{{product.description}}</p>
   <p>Price: {{product.price}}</p>
-  <button class="btn-buy"
-  (click)="onAddToCart()">Купить</button>
+  <button class="btn-buy" (click)="onAddToCart()"
+  [disabled]="!product.available" [ngClass]="{'btn-disabled': !product.available}">
+    Купить
+  </button>
 </div>

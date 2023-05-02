@@ -1,14 +1,15 @@
 <div class="container w-1/4 mx-auto flex flex-col justify-center" *ngIf="cartItems.length > 0">
-  <h2 class="mb-2 text-lg font-semibold text-gray-900">Cart List</h2>
+  <h2 class="text-main">Cart List</h2>
   <ul>
     <li *ngFor="let item of cartItems; let i = index; trackBy: trackById">
       {{item.name}} - {{item.price}} <button class="btn-reject" (click)="onRemoveItem(i)">Удалить</button>
     </li>
   </ul>
-  <p class="mb-2 text-lg font-semibold text-gray-900">Total Price: {{calculateTotalPrice()}}</p>
+  <p class="text-main">Total Price: {{calculateTotalPrice()}}</p>
+  <p class="text-main">Total Quantity: {{calculateTotalQuantity()}}</p>
   <button type="button" class="btn-reject" (click)="onClearCart()">Очистить корзину</button>
 </div>
 
 <div class="container mx-auto flex justify-center" *ngIf="cartItems.length === 0">
-  <p class="mb-2 text-lg font-semibold text-gray-900">Корзина пуста</p>
+  <p class="text-main">Корзина пуста</p>
 </div>
