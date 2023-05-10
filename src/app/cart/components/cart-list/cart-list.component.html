@@ -1,15 +1,19 @@
-<div class="container w-1/4 mx-auto flex flex-col justify-center" *ngIf="cartItems.length > 0">
-  <h2 class="text-main">Cart List</h2>
-  <ul>
-    <li *ngFor="let item of cartItems; let i = index; trackBy: trackById">
-      {{item.name}} - {{item.price}} <button class="btn-reject" (click)="onRemoveItem(i)">Удалить</button>
-    </li>
-  </ul>
-  <p class="text-main">Total Price: {{calculateTotalPrice()}}</p>
-  <p class="text-main">Total Quantity: {{calculateTotalQuantity()}}</p>
-  <button type="button" class="btn-reject" (click)="onClearCart()">Очистить корзину</button>
-</div>
+<div class="container w-1/5 mx-auto flex flex-col justify-center">
+  <div *ngIf="!isEmpty(); else emptyCartBlock">
+    <p *ngFor="let item of getItems()">
+      <app-cart-item appHighlight
+        [product]=item.product
+        [quantity]=item.quantity
 
-<div class="container mx-auto flex justify-center" *ngIf="cartItems.length === 0">
-  <p class="text-main">Корзина пуста</p>
+        (quantityIncrease)="onQuantityIncrease($event)"
+        (quantityDecrease)="onQuantityDecrease($event)"
+        (deleteItem)="onDeleteItem($event)">
+      </app-cart-item>
+    </p>
+    <p class="text-main">Общая стоимость {{getTotalCost()}}, Количество {{getTotalQuantity()}}</p>
+  </div>
+
+  <ng-template #emptyCartBlock>
+    <p class="text-main">Корзина пуста</p>
+  </ng-template>
 </div>

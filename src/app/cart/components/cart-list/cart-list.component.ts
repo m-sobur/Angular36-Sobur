@@ -7,39 +7,29 @@ import { CartService } from '../../services/cart.service';
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.scss']
 })
-export class CartListComponent implements OnInit {
-  cartItems!: ProductModel[];
+export class CartListComponent {
+   constructor(private cartService: CartService) {}
 
-  constructor(private cartService: CartService) { }
-
-  ngOnInit(): void {
-    this.updateCartItems();
+  onQuantityIncrease(product: ProductModel) {
+    this.cartService.addProduct(product)
+  }
+  onDeleteItem(product: ProductModel) {
+    this.cartService.removeProduct(product, true)
+  }
+  onQuantityDecrease(product: ProductModel) {
+    this.cartService.removeProduct(product)
   }
 
-  trackById(index: number, item: ProductModel): number {
-    return item.id;
+  getItems(): {product: ProductModel, quantity: number}[] {
+    return this.cartService.getProducts()
   }
-
-  onClearCart(): void {
-    this.cartService.clearCart();
-    this.updateCartItems();
-    console.log(`Cart clear`);
+  getTotalCost(): Number {
+    return this.cartService.getTotalCost()
   }
-
-  onRemoveItem(index: number): void {
-    this.cartService.removeItem(index);
-    this.updateCartItems();
+  getTotalQuantity(): Number {
+    return this.cartService.getTotalQuantity()
   }
-
-  calculateTotalPrice(): number {
-    return this.cartService.calculateTotalPrice();
-  }
-
-  calculateTotalQuantity(): number {
-    return this.cartService.calculateTotalQuantity();
-  }
-
-  private updateCartItems(): void {
-    this.cartItems = this.cartService.getItems();
+  isEmpty(): boolean {
+    return this.cartService.isEmpty()
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Directive, HostBinding, HostListener, OnInit } from '@angular/core';
 import { CartService } from 'src/app/cart/services/cart.service';
 import { ProductModel } from '../../models/product-model';
 import { ProductsService } from '../../services/products-service.service';
@@ -11,6 +11,7 @@ import { ProductsService } from '../../services/products-service.service';
 export class ProductListComponent implements OnInit {
   products!: ProductModel[];
 
+
   constructor(
     private productsService: ProductsService,
     private cartService: CartService
@@ -21,7 +22,7 @@ export class ProductListComponent implements OnInit {
   }
 
   onAddToCartParent(product: ProductModel): void {
-    this.cartService.addItem(product);
+    this.cartService.addProduct(product);
     console.log(`Product ${product.name} has been added to cart!`);
   }
 }

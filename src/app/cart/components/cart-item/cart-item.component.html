@@ -1,0 +1,9 @@
+<div class="text-main">
+  <span [textContent]=product.name></span>,
+  <span [textContent]=product.price></span>.
+  (Quantity = <span [textContent]=quantity></span>)
+
+  <button class="btn-apply" (click)="onQuantityIncrease()" (wheel)="onIncreaseWheel($event)">+</button>
+  <button class="btn-reject" (click)="onQuantityDecrease()" (wheel)="onDecreaseWheel($event)">-</button>
+  <button class="btn-reject" (click)="onDeleteItem()">Удалить</button>
+</div>
