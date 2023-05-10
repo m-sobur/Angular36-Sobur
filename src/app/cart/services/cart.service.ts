@@ -1,31 +1,59 @@
 import { Injectable } from '@angular/core';
 import { ProductModel } from 'src/app/products/models/product-model';
+import { CartItem, CartModel } from '../models/cart-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private items: ProductModel[] = [];
+  private cart: CartModel = { items: [] }
 
   constructor() { }
 
-  addItem(item: ProductModel): void {
-    this.items.push(item);
+  getProducts(): CartItem[] {
+    return this.cart.items
   }
 
-  getItems(): ProductModel[] {
-    return this.items;
+  getTotalCost(): number {
+    return this.cart.items.reduce((total, item) => {
+      return total + (item.product?.price ?? 0) * item.quantity
+    }, 0)
   }
 
-  clearCart(): void {
-    this.items = [];
+  getTotalQuantity(): number {
+    return this.cart.items.reduce((total, item) => {
+      return total + item.quantity
+    }, 0)
   }
 
-  removeItem(index: number): void {
-    this.items.splice(index, 1);
+  isEmpty(): boolean {
+    return this.cart.items.length === 0
   }
 
-  calculateTotalPrice(): number {
-    return this.items.reduce((acc, item) => acc + item.price, 0);
+  addProduct(product: ProductModel): void {
+    let index: number = this.cart.items.findIndex(e => e.product.id === product.id)
+    if (index >= 0) {
+      this.cart.items[index] = {
+        product: this.cart.items[index].product,
+        quantity: this.cart.items[index].quantity + 1
+      }
+    } else {
+      this.cart.items.push({product: product, quantity: 1})
+    }
+  }
+
+  removeProduct(product: ProductModel, isForAll?: boolean): void {
+    let index: number = this.cart.items.findIndex(i => i.product.id === product.id);
+    let currentItem: CartItem = this.cart.items[index];
+    if (!currentItem) return;
+
+    if (this.cart.items[index].quantity > 1 && !isForAll) {
+      this.cart.items[index] = {
+        product: currentItem.product,
+        quantity: currentItem.quantity - 1,
+      };
+    } else {
+      this.cart.items.splice(index, 1);
+    }
   }
 }
