@@ -4,7 +4,10 @@ import { Directive, HostBinding, HostListener } from '@angular/core';
   selector: '[appHighlight]'
 })
 export class HighlightDirective {
-  @HostBinding('style.background-color') backgroundColor = 'red';
+  // Директива рабочая.
+  // Возможно стили, которые вы подключили перебивают фон и он не меняется
+  // я попробовал для color, он меняется
+  @HostBinding('style.color') backgroundColor: string | undefined;
 
 
   @HostListener('mouseenter') onMouseEnter() {
