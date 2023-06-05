@@ -1,16 +1,18 @@
 <div class="container w-1/5 mx-auto flex flex-col justify-center">
   <div *ngIf="!isEmpty(); else emptyCartBlock">
-    <p *ngFor="let item of getItems()">
+    <p *ngFor="let product of products">
       <app-cart-item appHighlight
-        [product]=item.product
-        [quantity]=item.quantity
+        [product]=product.product
+        [quantity]=product.quantity
 
         (quantityIncrease)="onQuantityIncrease($event)"
         (quantityDecrease)="onQuantityDecrease($event)"
         (deleteItem)="onDeleteItem($event)">
       </app-cart-item>
     </p>
+    <input type="number" [(ngModel)]="quantityStep" placeholder="qnt"/>
     <p class="text-main">Общая стоимость {{getTotalCost()}}, Количество {{getTotalQuantity()}}</p>
+    <button class="btn-reject" (click)="onClearCart()">Очистить корзину</button>
   </div>
 
   <ng-template #emptyCartBlock>

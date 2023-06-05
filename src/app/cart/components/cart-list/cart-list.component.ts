@@ -8,27 +8,38 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./cart-list.component.scss']
 })
 export class CartListComponent {
+  quantityStep: number = 1
+
    constructor(private cartService: CartService) {}
 
   onQuantityIncrease(product: ProductModel) {
-    this.cartService.addProduct(product)
+    this.cartService.increaseQuantity(product, this.quantityStep)
   }
+
   onDeleteItem(product: ProductModel) {
     this.cartService.removeProduct(product, true)
   }
+
   onQuantityDecrease(product: ProductModel) {
-    this.cartService.removeProduct(product)
+    this.cartService.decreaseQuantity(product, this.quantityStep)
   }
 
-  getItems(): {product: ProductModel, quantity: number}[] {
-    return this.cartService.getProducts()
+  onClearCart() {
+    this.cartService.removeAllProducts();
   }
+
+  get products(): {product: ProductModel, quantity: number}[] {
+    return this.cartService.products
+  }
+
   getTotalCost(): Number {
-    return this.cartService.getTotalCost()
+    return this.cartService.totalCost
   }
+
   getTotalQuantity(): Number {
-    return this.cartService.getTotalQuantity()
+    return this.cartService.totalQuantity
   }
+
   isEmpty(): boolean {
     return this.cartService.isEmpty()
   }

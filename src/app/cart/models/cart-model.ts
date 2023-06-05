@@ -1,10 +1,15 @@
 import { ProductModel } from "src/app/products/models/product-model";
 
-export type CartItem = {
-  product: ProductModel,
-  quantity: number
+export class CartItem {
+  public product: ProductModel;
+  public quantity: number;
+
+  constructor(product: ProductModel, quantity: number) {
+    this.product = product;
+    this.quantity = quantity;
+  }
 }
 
 export interface CartModel {
-  items: CartItem[]
+  items: CartItem[];
 }

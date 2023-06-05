@@ -10,17 +10,17 @@ export class CartService {
 
   constructor() { }
 
-  getProducts(): CartItem[] {
-    return this.cart.items
+  get products(): CartItem[] {
+    return [...this.cart.items];
   }
 
-  getTotalCost(): number {
+  get totalCost(): number {
     return this.cart.items.reduce((total, item) => {
       return total + (item.product?.price ?? 0) * item.quantity
     }, 0)
   }
 
-  getTotalQuantity(): number {
+  get totalQuantity(): number {
     return this.cart.items.reduce((total, item) => {
       return total + item.quantity
     }, 0)
@@ -30,30 +30,53 @@ export class CartService {
     return this.cart.items.length === 0
   }
 
-  addProduct(product: ProductModel): void {
-    let index: number = this.cart.items.findIndex(e => e.product.id === product.id)
+  addProduct(product: ProductModel, qnt: number = 1): void {
+    const index: number = this.cart.items.findIndex(e => e.product.id === product.id);
     if (index >= 0) {
-      this.cart.items[index] = {
+      const updatedItems = [...this.cart.items];
+      updatedItems[index] = {
         product: this.cart.items[index].product,
-        quantity: this.cart.items[index].quantity + 1
-      }
+        quantity: this.cart.items[index].quantity + qnt
+      };
+      this.cart = { items: updatedItems };
     } else {
-      this.cart.items.push({product: product, quantity: 1})
+      const newItem: CartItem = { product, quantity: qnt };
+      this.cart = { items: [...this.cart.items, newItem] };
     }
   }
 
   removeProduct(product: ProductModel, isForAll?: boolean): void {
-    let index: number = this.cart.items.findIndex(i => i.product.id === product.id);
-    let currentItem: CartItem = this.cart.items[index];
-    if (!currentItem) return;
+    const updatedItems = this.cart.items.filter(item => item.product.id !== product.id);
+    this.cart = { items: updatedItems };
+  }
 
-    if (this.cart.items[index].quantity > 1 && !isForAll) {
-      this.cart.items[index] = {
-        product: currentItem.product,
-        quantity: currentItem.quantity - 1,
+  increaseQuantity(product: ProductModel, qnt: number = 1): void {
+    this.changeQuantity(product, qnt);
+  }
+
+  decreaseQuantity(product: ProductModel, qnt: number = 1): void {
+    const currentItem: CartItem | undefined = this.cart.items.find(item => item.product.id === product.id);
+
+    if (!currentItem || currentItem.quantity <= 1) {
+      return;
+    }
+
+    this.changeQuantity(product, -qnt);
+  }
+
+  removeAllProducts(): void {
+    this.cart = { items: [] };
+  }
+
+  private changeQuantity(product: ProductModel, quantityDelta: number): void {
+    const index: number = this.cart.items.findIndex(i => i.product.id === product.id);
+    if (index >= 0) {
+      const updatedItems = [...this.cart.items];
+      updatedItems[index] = {
+        product: this.cart.items[index].product,
+        quantity: this.cart.items[index].quantity + quantityDelta,
       };
-    } else {
-      this.cart.items.splice(index, 1);
+      this.cart = { items: updatedItems };
     }
   }
 }
