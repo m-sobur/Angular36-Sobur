@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { CartModule } from './cart/cart.module';
+import { FirstComponent } from './first/first.component';
 import { FirstModule } from './first/first.module';
 import { ProductsModule } from './products/products.module';
 import { SharedModule } from './shared/shared.module';
@@ -12,13 +13,15 @@ import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    FirstModule,
+
     BrowserModule,
 
     CartModule,
     ProductsModule,
-    FirstModule,
+
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
