@@ -1,5 +1,14 @@
-<app-product appHighlight
-  *ngFor="let product of products"
-  [product]="product"
+<div class="container w-1/4 mx-auto flex justify-center border-slate-950 border-2 mt-1">
+  <label for="sortOrder">Sort Order:</label>
+  <input id="sortOrder" type="checkbox" [(ngModel)]="isAsc">
+
+  <label for="sortBy">Sort By:</label>
+  <select class="bg-red-400" id="sortBy" [(ngModel)]="selectedSortParam"
+    (change)="onSortParamChange($event)">
+    <option *ngFor="let sortParam of orderByPipe.getCriteriaToSort()" value={{sortParam}}>{{sortParam}}</option>
+  </select>
+</div>
+
+<app-product *ngFor="let product of products | async | orderBy : [selectedSortParam] : isAsc" [product]="product"
   (addProductToCart)="onAddToCartParent($event)">
 </app-product>

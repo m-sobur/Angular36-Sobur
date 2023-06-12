@@ -1,7 +1,7 @@
-<div class="container w-1/5 mx-auto flex flex-col justify-center">
+<div class="container w-1/4 mx-auto flex flex-col justify-center border-slate-950 border-2 mt-1">
   <div *ngIf="!isEmpty(); else emptyCartBlock">
     <p *ngFor="let product of products">
-      <app-cart-item appHighlight
+      <app-cart-item highlight
         [product]=product.product
         [quantity]=product.quantity
 
@@ -11,7 +11,7 @@
       </app-cart-item>
     </p>
     <input type="number" [(ngModel)]="quantityStep" placeholder="qnt"/>
-    <p class="text-main">Общая стоимость {{getTotalCost()}}, Количество {{getTotalQuantity()}}</p>
+    <p class="text-main">Общая стоимость = {{getTotalCost() | currency}}, Количество {{getTotalQuantity()}}</p>
     <button class="btn-reject" (click)="onClearCart()">Очистить корзину</button>
   </div>
 

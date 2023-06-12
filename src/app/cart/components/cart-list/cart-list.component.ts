@@ -32,11 +32,11 @@ export class CartListComponent {
     return this.cartService.products
   }
 
-  getTotalCost(): Number {
+  getTotalCost(): number {
     return this.cartService.totalCost
   }
 
-  getTotalQuantity(): Number {
+  getTotalQuantity(): number {
     return this.cartService.totalQuantity
   }
 

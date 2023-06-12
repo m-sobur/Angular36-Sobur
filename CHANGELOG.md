@@ -6,6 +6,17 @@
 
 ### VZhyrytskiy Вопросы
 
+## [1.0.2] - 2023-06-12
+
+### Added
+
+- Created OrderByPipe in SharedModule
+
+### Changed
+
+- Used | currency and | uppercase pipe's in product template
+- Used | async pipe in product-list template
+
 ## [1.0.1] - 2023-06-11
 
 ### Added
@@ -110,8 +121,9 @@
 
 <!-- Versions -->
 
-[unreleased]: https://github.com/m-sobur/Angular36-Sobur/compare/v1.0.1...HEAD
+[unreleased]: https://github.com/m-sobur/Angular36-Sobur/compare/v1.0.2...HEAD
 
+[1.0.2]: https://github.com/m-sobur/Angular36-Sobur/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/m-sobur/Angular36-Sobur/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.9...v1.0.0
 [0.0.9]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.8...v0.0.9
