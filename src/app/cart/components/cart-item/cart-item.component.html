@@ -1,6 +1,6 @@
-<div class="text-main">
-  <span [textContent]=product.name></span>,
-  <span [textContent]=product.price></span>.
+<div class="text-main border-slate-950 border-2 mt-1">
+  <span [textContent]="product.name | uppercase"></span>,
+  <span [textContent]="product.price | currency"></span>.
   (Quantity = <span [textContent]=quantity></span>)
 
   <button class="btn-apply" (click)="onQuantityIncrease()" (wheel)="onIncreaseWheel($event)">+</button>
