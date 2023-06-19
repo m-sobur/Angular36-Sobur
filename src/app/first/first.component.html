@@ -1,9 +1,11 @@
-<div>
-  <h1>FirstComponent works!</h1>
-  <p>Name: {{ name }}</p>
-  <p>Description: {{ description }}</p>
-  <p>Price: {{ price }}</p>
-  <p>Category: {{ category }}</p>
-  <p>Is Available: {{ isAvailable }}</p>
-  <p>Categories: {{ categories }}</p>
-</div>
+<p highlight fontResize="10px">
+  App = <span>{{constantsService.App}}</span><br />
+  Ver = <span>{{constantsService.Ver}}</span><br />
+  API_URL = <span>{{constantsService.API_URL}}</span><br />
+  <br />
+  Generated string = <span>{{generatedString}}</span><br />
+  Generated string = <span>{{generatedString}}</span><br />
+  Generated id1 = <span>{{generatedId1}}</span><br />
+  Generated id2 = <span>{{generatedId2}}</span><br />
+  Stored value = <span>{{getStoredValue()}}</span><br />
+</p>

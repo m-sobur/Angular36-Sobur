@@ -6,6 +6,18 @@
 
 ### VZhyrytskiy Вопросы
 
+## [1.0.1] - 2023-06-11
+
+### Added
+
+- Added ConfigOptionsService, ConstantsService, GeneratorService, GeneratorFactory, LocalStorageService by Task3/2-6
+- Created font-resize directive by Task3/8
+
+### Changed
+
+- Changed CartService by Task3/1
+- Changed FirstComponent by Task3/7
+
 ## [1.0.0] - 2023-05-10
 
 ### Added
@@ -98,7 +110,9 @@
 
 <!-- Versions -->
 
-[unreleased]: https://github.com/m-sobur/Angular36-Sobur/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/m-sobur/Angular36-Sobur/compare/v1.0.1...HEAD
+
+[1.0.1]: https://github.com/m-sobur/Angular36-Sobur/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.9...v1.0.0
 [0.0.9]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.8...v0.0.9
 [0.0.8]: https://github.com/m-sobur/Angular36-Sobur/compare/v0.0.7...v0.0.8
